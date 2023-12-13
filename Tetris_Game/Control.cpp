@@ -12,27 +12,20 @@ void Mechanic::control()
 		{
 			counterRotate();
 		}
-		else if (IsKeyDown(KEY_LEFT))
-		{
-			if (IsKeyPressed(KEY_RIGHT))
-			{
-				moveLeft();
-				if (curBlock.isOutOfBound() == 1)
-					moveRight();
-			}
-			else if (eventTrigger(0.075, controlTime))
-			{
-				moveLeft();
-				if (curBlock.isOutOfBound() == 1)
-					moveRight();
-			}
-		}
-		else if (IsKeyDown(KEY_RIGHT))
+		if (IsKeyDown(KEY_LEFT))
 		{
 			if (IsKeyPressed(KEY_LEFT))
 			{
+				moveLeft();
+			}
+			else if (eventTrigger(0.075, controlTime))
+				moveLeft();
+		}
+		else if (IsKeyDown(KEY_RIGHT))
+		{
+			if (IsKeyPressed(KEY_RIGHT))
+			{
 				moveRight();
-
 			}
 			else if (eventTrigger(0.075, controlTime))
 			{
@@ -41,7 +34,7 @@ void Mechanic::control()
 		}
 		if (IsKeyDown(KEY_DOWN))
 		{
-			if (eventTrigger(0.05, controlTime))
+			if (eventTrigger(0.05, fallTime))
 				moveDown();
 		}
 		if (IsKeyPressed(KEY_SPACE))

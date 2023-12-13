@@ -30,13 +30,17 @@ Block Mechanic::blockGenerator()
 
 bool Mechanic::eventTrigger(double speed, double& flag)
 {
-	double runTime = GetTime();
-	if (runTime - flag >= speed)
+	long double runTime = GetTime();
+	if ((runTime - flag) >= speed)
 	{
 		flag = runTime;
 		return true;
 	}
-	return false;
+	else
+	{
+		return false;
+	}
+
 }
 
 void Mechanic::draw()
@@ -65,6 +69,8 @@ void Mechanic::hold()
 	if (holdBlock.getType() == 0)
 	{
 		holdBlock = curBlock;
+		holdBlock.setX(3);
+		holdBlock.setY(0);
 		curBlock = nextBlocks.front();
 		nextBlocks.pop();
 		nextBlocks.push(blockGenerator());
@@ -72,6 +78,8 @@ void Mechanic::hold()
 	else
 	{
 		Block temp = curBlock;
+		temp.setX(3);
+		temp.setY(0);
 		curBlock = holdBlock;
 		holdBlock = temp;
 	}

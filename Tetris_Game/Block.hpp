@@ -20,6 +20,8 @@ public:
 	int getType();
 	int getX();
 	int getY();
+	void setX(int x);
+	void setY(int y);
 	void draw();
 	void move(int row, int col);
 	void rotate();

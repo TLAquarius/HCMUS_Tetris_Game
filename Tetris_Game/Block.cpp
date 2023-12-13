@@ -22,6 +22,16 @@ int Block::getY()
 {
 	return y;
 }
+void Block::setX(int x)
+{
+	this->x = x;
+}
+
+void Block::setY(int y)
+{
+	this->y = y;
+}
+
 void Block::draw()
 {
 	for (int i = 0; i < cells[state].size(); i++)
