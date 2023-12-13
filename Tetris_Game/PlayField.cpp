@@ -85,5 +85,8 @@ int Field::clearLine()
 }
 void Field::moveLine(int curRow, int num)
 {
-	field[curRow+num] = field[curRow];
+	for (int i = 0; i < colNum; i++)
+	{
+		field[curRow + num][i] = field[curRow][i];
+	}
 }

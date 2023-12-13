@@ -59,11 +59,15 @@ void Mechanic::moveDown()
 			lock();
 			int temp = f.clearLine();
 			s.setLineClear(temp);
+			s.setScore(temp, speedLevel);
+			if (s.getScore() > s.getHighScore())
+			{
+				s.setHighScore(s.getScore());
+			}
 			if (s.getLineClear() >= speedLevel * 10)
 			{
 				speedLevel++;
 			}
-			s.setScore(temp, speedLevel);
 		}
 	}
 }
@@ -100,6 +104,10 @@ void Mechanic::drop()
 			if (s.getScore() > s.getHighScore())
 			{
 				s.setHighScore(s.getScore());
+			}
+			if (s.getLineClear() >= speedLevel * 10)
+			{
+				speedLevel++;
 			}
 			break;
 		}
