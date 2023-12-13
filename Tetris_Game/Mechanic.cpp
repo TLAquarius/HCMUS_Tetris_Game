@@ -56,9 +56,14 @@ bool Mechanic::isCollision()
 	vector<Pos> temp = curBlock.getCurPos();
 	for (int i = 0; i < temp.size(); i++)
 	{
-		if (f.field[temp[i].getY() + curBlock.getY()][temp[i].getX() + curBlock.getX()]!=0)
+		int tempy = temp[i].getY() + curBlock.getY();
+		int tempx = temp[i].getX() + curBlock.getX();
+		if (tempx >= 0 && tempx < 10 && tempy >= 0 && tempy < 20)
 		{
-			return true;
+			if (f.field[tempy][tempx] != 0)
+			{
+				return true;
+			}
 		}
 	}
 	return false;

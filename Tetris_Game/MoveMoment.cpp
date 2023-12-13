@@ -3,7 +3,7 @@
 void Mechanic::rotate()
 {
 	curBlock.rotate();
-	while (curBlock.isOutOfBound() == 1&& !isCollision())
+	while (curBlock.isOutOfBound() == 1 && !isCollision())
 	{
 		moveRight();
 	}
