@@ -17,6 +17,7 @@ void Mechanic::control()
 			if (IsKeyPressed(KEY_LEFT))
 			{
 				moveLeft();
+				eventTrigger(0.075, controlTime);
 			}
 			else if (eventTrigger(0.075, controlTime))
 				moveLeft();
@@ -26,6 +27,7 @@ void Mechanic::control()
 			if (IsKeyPressed(KEY_RIGHT))
 			{
 				moveRight();
+				eventTrigger(0.075, controlTime);
 			}
 			else if (eventTrigger(0.075, controlTime))
 			{
