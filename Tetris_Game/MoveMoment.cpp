@@ -50,18 +50,21 @@ void Mechanic::counterRotate()
 }
 void Mechanic::moveDown()
 {
-	curBlock.move(1, 0);
-	if (curBlock.isOutOfBound() == 4 || isCollision())
+	if (!gameOver)
 	{
-		moveUp();
-		lock();
-		int temp = f.clearLine();
-		s.setLineClear(temp);
-		if (s.getLineClear() >= speedLevel * 10)
+		curBlock.move(1, 0);
+		if (curBlock.isOutOfBound() == 4 || isCollision())
 		{
-			speedLevel++;
+			moveUp();
+			lock();
+			int temp = f.clearLine();
+			s.setLineClear(temp);
+			if (s.getLineClear() >= speedLevel * 10)
+			{
+				speedLevel++;
+			}
+			s.setScore(temp, speedLevel);
 		}
-		s.setScore(temp,speedLevel);
 	}
 }
 void Mechanic::moveLeft()
