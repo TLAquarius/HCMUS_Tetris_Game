@@ -57,17 +57,6 @@ void Mechanic::moveDown()
 		{
 			moveUp();
 			lock();
-			int temp = f.clearLine();
-			s.setLineClear(temp);
-			s.setScore(temp, speedLevel);
-			if (s.getScore() > s.getHighScore())
-			{
-				s.setHighScore(s.getScore());
-			}
-			if (s.getLineClear() >= speedLevel * 10)
-			{
-				speedLevel++;
-			}
 		}
 	}
 }
@@ -93,17 +82,7 @@ void Mechanic::drop()
 {
 	curBlock.setY(curBlock.getSY());
 	lock();
-	int temp = f.clearLine();
-	s.setLineClear(temp);
-	s.setScore(temp, speedLevel);
-	if (s.getScore() > s.getHighScore())
-	{
-		s.setHighScore(s.getScore());
-	}
-	if (s.getLineClear() >= speedLevel * 10)
-	{
-		speedLevel++;
-	}
+	
 }
 
 void Mechanic::lock()
@@ -112,6 +91,17 @@ void Mechanic::lock()
 	for (int i = 0; i < temp.size(); i++)
 	{
 		f.field[temp[i].getY() + curBlock.getY()][temp[i].getX() + curBlock.getX()] = curBlock.getType();
+	}
+	int templ = f.clearLine();
+	s.setLineClear(templ);
+	s.setScore(templ, level);
+	if (s.getScore() > s.getHighScore())
+	{
+		s.setHighScore(s.getScore());
+	}
+	if (s.getLineClear() >= level * 10+10)
+	{
+		level++;
 	}
 	if (!gameOver)
 	{

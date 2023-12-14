@@ -41,6 +41,11 @@ void Block::setSY(int y)
 	shadowY = y;
 }
 
+void Block::setState(int state)
+{
+	this->state = state;
+}
+
 void Block::draw()
 {
 	for (int i = 0; i < cells[state].size(); i++)
@@ -57,7 +62,7 @@ void Block::drawShadow()
 	{
 		DrawRectangle(((cells[state][i].getX() + x) * cellSize + gameOffsetX + 1),
 			((cells[state][i].getY() + shadowY) * cellSize + gameOffsetY + 1),
-			cellSize - 2, cellSize - 2, Fade(colorList[color],0.25));
+			cellSize - 2, cellSize - 2, Fade(WHITE,0.25));
 	}
 }
 

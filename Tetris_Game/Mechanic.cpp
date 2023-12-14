@@ -12,7 +12,7 @@ Mechanic::Mechanic()
 	holdFlag = false;
 	gameOver = false;
 	fallTime = 0;
-	speedLevel = 1;
+	level = 1;
 }
 
 Block Mechanic::blockGenerator()
@@ -94,8 +94,6 @@ void Mechanic::hold()
 	if (holdBlock.getType() == 0)
 	{
 		holdBlock = curBlock;
-		holdBlock.setX(3);
-		holdBlock.setY(0);
 		curBlock = nextBlocks.front();
 		nextBlocks.pop();
 		nextBlocks.push(blockGenerator());
@@ -103,11 +101,12 @@ void Mechanic::hold()
 	else
 	{
 		Block temp = curBlock;
-		temp.setX(3);
-		temp.setY(0);
 		curBlock = holdBlock;
 		holdBlock = temp;
 	}
+	holdBlock.setX(3);
+	holdBlock.setY(0);
+	holdBlock.setState(0);
 	holdFlag = true;
 }
 
@@ -135,5 +134,10 @@ void Mechanic::restart()
 	s.setLineClear(temp2);
 	temp2 = 0 - s.getPieceDrop();
 	s.setPieceDrop(temp2);
-	speedLevel = 1;
+	level = 1;
+}
+
+double Mechanic::fallSpeed()
+{
+	return (double)(1 / level);
 }

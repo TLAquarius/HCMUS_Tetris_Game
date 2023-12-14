@@ -18,6 +18,7 @@ public:
 	Block();
 	int state;
 	vector<Pos> getCurPos();
+	void setState(int state);
 	int getType();
 	int getX();
 	int getY();

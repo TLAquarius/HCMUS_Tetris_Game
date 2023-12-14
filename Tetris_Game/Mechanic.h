@@ -22,9 +22,10 @@ public:
 	Block curBlock;
 	queue<Block> nextBlocks;
 	Block holdBlock;
-	double speedLevel;
+	double level;
 	double controlTime;
 	double fallTime;
+	double fallSpeed();
 	bool eventTrigger(double speed,double& flag);
 	void draw();
 	void updateShadow();

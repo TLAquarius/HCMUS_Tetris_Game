@@ -13,7 +13,7 @@ int main()
 	while (WindowShouldClose() == false)
 	{
 		BeginDrawing();
-		if (gamePlay.eventTrigger(1,gamePlay.fallTime))
+		if (gamePlay.eventTrigger(gamePlay.fallSpeed(), gamePlay.fallTime))
 		{
 			gamePlay.moveDown();
 		}
