@@ -16,7 +16,6 @@ private:
 	Score s;
 	bool gameOver;
 	bool holdFlag;
-	bool pause;
 	double level;
 	double controlTime;
 	double fallTime;
@@ -34,8 +33,7 @@ public:
 	bool isCollision();
 	void draw();
 	void updateShadow();
-	
-	bool getPause();
+
 	void logic();
 
 	void rotate();

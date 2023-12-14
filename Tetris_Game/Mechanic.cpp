@@ -13,12 +13,6 @@ Mechanic::Mechanic()
 	gameOver = false;
 	fallTime = 0;
 	level = 1;
-	pause = false;
-}
-
-bool Mechanic::getPause()
-{
-	return pause;
 }
 
 void Mechanic::logic()
@@ -125,7 +119,6 @@ void Mechanic::restart()
 	fallTime = 0;
 
 	gameOver = false;
-	pause = false;
 
 	long temp = 0 - s.getScore();
 	s.setScore(temp,-1);
