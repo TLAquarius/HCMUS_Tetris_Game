@@ -91,26 +91,18 @@ void Mechanic::moveUp()
 
 void Mechanic::drop()
 {
-	while (true)
+	curBlock.setY(curBlock.getSY());
+	lock();
+	int temp = f.clearLine();
+	s.setLineClear(temp);
+	s.setScore(temp, speedLevel);
+	if (s.getScore() > s.getHighScore())
 	{
-		curBlock.move(1, 0);
-		if (curBlock.isOutOfBound() == 4 || isCollision())
-		{
-			moveUp();
-			lock();
-			int temp = f.clearLine();
-			s.setLineClear(temp);
-			s.setScore(temp,speedLevel);
-			if (s.getScore() > s.getHighScore())
-			{
-				s.setHighScore(s.getScore());
-			}
-			if (s.getLineClear() >= speedLevel * 10)
-			{
-				speedLevel++;
-			}
-			break;
-		}
+		s.setHighScore(s.getScore());
+	}
+	if (s.getLineClear() >= speedLevel * 10)
+	{
+		speedLevel++;
 	}
 }
 

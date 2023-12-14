@@ -6,6 +6,7 @@ Block::Block()
 	y = 0;
 	color = 0;
 	state = 0;
+	shadowY = 0;
 }
 
 int Block::getType()
@@ -31,13 +32,32 @@ void Block::setY(int y)
 {
 	this->y = y;
 }
+int Block::getSY()
+{
+	return shadowY;
+}
+void Block::setSY(int y)
+{
+	shadowY = y;
+}
 
 void Block::draw()
 {
 	for (int i = 0; i < cells[state].size(); i++)
 	{
-		DrawRectangle(((cells[state][i].getX()+x)*cellSize + gameOffsetX+1),((cells[state][i].getY()+y)*cellSize+gameOffsetY + 1),
+		DrawRectangle(((cells[state][i].getX()+x)*cellSize + gameOffsetX+1),
+			((cells[state][i].getY()+y)*cellSize+gameOffsetY + 1),
 			cellSize-2,cellSize-2,colorList[color]);
+	}
+}
+
+void Block::drawShadow()
+{
+	for (int i = 0; i < cells[state].size(); i++)
+	{
+		DrawRectangle(((cells[state][i].getX() + x) * cellSize + gameOffsetX + 1),
+			((cells[state][i].getY() + shadowY) * cellSize + gameOffsetY + 1),
+			cellSize - 2, cellSize - 2, Fade(colorList[color],0.25));
 	}
 }
 

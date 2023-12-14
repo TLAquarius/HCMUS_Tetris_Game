@@ -43,10 +43,30 @@ bool Mechanic::eventTrigger(double speed, double& flag)
 
 }
 
+void Mechanic::updateShadow()
+{
+	vector<Pos> temp = curBlock.getCurPos();
+	int  i = 1;
+	int tempY = curBlock.getY();
+	while (true)
+	{
+		curBlock.move(1, 0);
+		if (curBlock.isOutOfBound() == 4 || isCollision())
+		{
+			moveUp();
+			curBlock.setSY(curBlock.getY());
+			break;
+		}
+	}
+	curBlock.setY(tempY);
+}
+
 void Mechanic::draw()
 {
 	ClearBackground(GRAY);
 	f.draw();
+	updateShadow();
+	curBlock.drawShadow();
 	curBlock.draw();
 	s.draw();
 }

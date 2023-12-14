@@ -27,6 +27,7 @@ public:
 	double fallTime;
 	bool eventTrigger(double speed,double& flag);
 	void draw();
+	void updateShadow();
 	void rotate();
 	bool isCollision();
 	void moveDown();

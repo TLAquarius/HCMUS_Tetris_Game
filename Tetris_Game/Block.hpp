@@ -12,6 +12,7 @@ protected:
 	int color;
 	int x;
 	int y;
+	int shadowY;
 	vector <vector<Pos>> cells;
 public:
 	Block();
@@ -22,7 +23,10 @@ public:
 	int getY();
 	void setX(int x);
 	void setY(int y);
+	int getSY();
+	void setSY(int y);
 	void draw();
+	void drawShadow();
 	void move(int row, int col);
 	void rotate();
 	void counterRotate();
