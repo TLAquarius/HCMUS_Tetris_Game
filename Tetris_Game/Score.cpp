@@ -65,7 +65,7 @@ void Score::setHighScore(long score)
 void Score::draw()
 {
 	DrawText(TextFormat("Score: %08i", score), scoreOffsetX, scoreOffsetY, 20, RED);
-	DrawText(TextFormat("HiScore: %08i", highScore), 200, 120, 20, GREEN);
-	DrawText(TextFormat("Num of Pieces: %02i", pieceDrop), 200, 160, 40, BLUE);
-	DrawText(TextFormat("Lines cleared: %08i", lineClear), 200, 220, 20, BLACK);
+	DrawText(TextFormat("HiScore: %08i", highScore), scoreOffsetX, scoreOffsetY+20, 20, GREEN);
+	DrawText(TextFormat("Num of Pieces: %02i", pieceDrop), scoreOffsetX, scoreOffsetY+80, 40, BLUE);
+	DrawText(TextFormat("Lines cleared: %08i", lineClear), scoreOffsetX, scoreOffsetY+120, 20, BLACK);
 }
