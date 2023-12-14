@@ -11,26 +11,34 @@ using namespace std;
 
 class Mechanic
 {
-public:
-	Mechanic();
+private:
 	Field f;
 	Score s;
 	bool gameOver;
 	bool holdFlag;
-	Block blockGenerator();
-	void control();
-	Block curBlock;
-	queue<Block> nextBlocks;
-	Block holdBlock;
+	bool pause;
 	double level;
 	double controlTime;
 	double fallTime;
+	Block curBlock;
+	queue<Block> nextBlocks;
+	Block holdBlock;
+	vector<Block> blockL;
+public:
+	Mechanic();
+	Block blockGenerator();
+	void control();
 	double fallSpeed();
 	bool eventTrigger(double speed,double& flag);
+	
+	bool isCollision();
 	void draw();
 	void updateShadow();
+	
+	bool getPause();
+	void logic();
+
 	void rotate();
-	bool isCollision();
 	void moveDown();
 	void moveLeft();
 	void moveRight();
@@ -40,6 +48,4 @@ public:
 	void lock();
 	void hold();
 	void restart();
-	vector<Block> blockL;
-
 };

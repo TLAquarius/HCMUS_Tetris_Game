@@ -13,13 +13,18 @@ int main()
 	while (WindowShouldClose() == false)
 	{
 		BeginDrawing();
-		if (gamePlay.eventTrigger(gamePlay.fallSpeed(), gamePlay.fallTime))
+		if (gamePlay.getPause() == false)
 		{
-			gamePlay.moveDown();
+			gamePlay.logic();//thiet ke man hinh pause + game over
 		}
-		gamePlay.control();
-		
-		gamePlay.draw();
+		else if(IsKeyPressed(KEY_R))
+		{
+			gamePlay.restart();
+		}
+		else if (IsKeyPressed(KEY_Q))
+		{
+			//thoat ra menu
+		}
 		EndDrawing();
 	}
 	CloseWindow();

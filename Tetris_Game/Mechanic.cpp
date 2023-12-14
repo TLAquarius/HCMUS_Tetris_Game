@@ -13,6 +13,22 @@ Mechanic::Mechanic()
 	gameOver = false;
 	fallTime = 0;
 	level = 1;
+	pause = false;
+}
+
+bool Mechanic::getPause()
+{
+	return pause;
+}
+
+void Mechanic::logic()
+{
+	if (eventTrigger(fallSpeed(), fallTime))
+	{
+		moveDown();
+	}
+	control();
+	draw();
 }
 
 Block Mechanic::blockGenerator()
@@ -89,27 +105,6 @@ bool Mechanic::isCollision()
 	return false;
 }
 
-void Mechanic::hold()
-{
-	if (holdBlock.getType() == 0)
-	{
-		holdBlock = curBlock;
-		curBlock = nextBlocks.front();
-		nextBlocks.pop();
-		nextBlocks.push(blockGenerator());
-	}
-	else
-	{
-		Block temp = curBlock;
-		curBlock = holdBlock;
-		holdBlock = temp;
-	}
-	holdBlock.setX(3);
-	holdBlock.setY(0);
-	holdBlock.setState(0);
-	holdFlag = true;
-}
-
 void Mechanic::restart()
 {
 	f.clear();
@@ -127,12 +122,17 @@ void Mechanic::restart()
 	}
 	s.saveHighScore();
 	controlTime = 0;
-	gameOver = false;
 	fallTime = 0;
+
+	gameOver = false;
+	pause = false;
+
 	long temp = 0 - s.getScore();
 	s.setScore(temp,-1);
+
 	int temp2 = 0-s.getLineClear();
 	s.setLineClear(temp2);
+	
 	temp2 = 0 - s.getPieceDrop();
 	s.setPieceDrop(temp2);
 	level = 1;

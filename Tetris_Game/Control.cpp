@@ -48,6 +48,10 @@ void Mechanic::control()
 			if (!holdFlag)
 				hold();
 		}
+		if (IsKeyPressed(KEY_P))
+		{
+			pause = true;
+		}
 	}
 	else
 	{

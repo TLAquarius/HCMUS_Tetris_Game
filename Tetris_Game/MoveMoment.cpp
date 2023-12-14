@@ -131,6 +131,27 @@ void Mechanic::drop()
 	
 }
 
+void Mechanic::hold()
+{
+	if (holdBlock.getType() == 0)
+	{
+		holdBlock = curBlock;
+		curBlock = nextBlocks.front();
+		nextBlocks.pop();
+		nextBlocks.push(blockGenerator());
+	}
+	else
+	{
+		Block temp = curBlock;
+		curBlock = holdBlock;
+		holdBlock = temp;
+	}
+	holdBlock.setX(3);
+	holdBlock.setY(0);
+	holdBlock.setState(0);
+	holdFlag = true;
+}
+
 void Mechanic::lock()
 {
 	vector <Pos> temp = curBlock.getCurPos();
