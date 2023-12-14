@@ -3,13 +3,36 @@
 void Mechanic::rotate()
 {
 	curBlock.rotate();
-	while (curBlock.isOutOfBound() == 1 && !isCollision())
+	int count = 0;
+	while (curBlock.isOutOfBound() == 1)
 	{
-		moveRight();
+		curBlock.move(0, 1);
+		count++;
+		if (isCollision())
+		{
+			while (count > 0)
+			{
+				curBlock.move(0, -1);
+				count--;
+			}
+			curBlock.counterRotate();
+			break;
+		}
 	}
-	while (curBlock.isOutOfBound() == 2 && !isCollision())
+	while (curBlock.isOutOfBound() == 2)
 	{
-		moveLeft();
+		curBlock.move(0,-1);
+		count++;
+		if (isCollision())
+		{
+			while (count > 0)
+			{
+				curBlock.move(0, 1);
+				count--;
+			}
+			curBlock.counterRotate();
+			break;
+		}
 	}
 	while (curBlock.isOutOfBound() == 3 && !isCollision())
 	{
@@ -27,13 +50,36 @@ void Mechanic::rotate()
 void Mechanic::counterRotate()
 {
 	curBlock.counterRotate();
-	while (curBlock.isOutOfBound() == 1 && !isCollision())
+	int count = 0;
+	while (curBlock.isOutOfBound() == 1)
 	{
-		moveRight();
+		curBlock.move(0,1);
+		count++;
+		if (isCollision())
+		{
+			while (count > 0)
+			{
+				curBlock.move(0, -1);
+				count--;
+			}
+			curBlock.rotate();
+			break;
+		}
 	}
-	while (curBlock.isOutOfBound() == 2 && !isCollision())
+	while (curBlock.isOutOfBound() == 2)
 	{
-		moveLeft();
+		curBlock.move(0,-1);
+		count++;
+		if (isCollision())
+		{
+			while (count > 0)
+			{
+				curBlock.move(0, 1);
+				count--;
+			}
+			curBlock.rotate();
+			break;
+		}
 	}
 	while (curBlock.isOutOfBound() == 3 && !isCollision())
 	{
@@ -98,6 +144,7 @@ void Mechanic::lock()
 	if (s.getScore() > s.getHighScore())
 	{
 		s.setHighScore(s.getScore());
+		s.saveHighScore();
 	}
 	if (s.getLineClear() >= level * 10+10)
 	{

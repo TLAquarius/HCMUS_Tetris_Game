@@ -85,10 +85,6 @@ bool Mechanic::isCollision()
 				return true;
 			}
 		}
-		else
-		{
-			return true;
-		}
 	}
 	return false;
 }
@@ -129,6 +125,7 @@ void Mechanic::restart()
 	{
 		nextBlocks.push(blockGenerator());
 	}
+	s.saveHighScore();
 	controlTime = 0;
 	gameOver = false;
 	fallTime = 0;

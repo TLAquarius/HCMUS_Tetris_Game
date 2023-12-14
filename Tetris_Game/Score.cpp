@@ -5,7 +5,13 @@ Score::Score()
 	lineClear = 0;
 	score = 0;
 	pieceDrop = 0;
-	highScore = 0;
+	ifstream sFile("high_score.txt");
+	if (sFile.is_open())
+	{
+		sFile >> highScore;
+	}
+	else
+		highScore = 0;
 }
 
 int Score::getLineClear()
@@ -60,6 +66,15 @@ long Score::getHighScore()
 void Score::setHighScore(long score)
 {
 	highScore = score;
+}
+
+void Score::saveHighScore()
+{
+	ofstream sFile("high_score.txt");
+	if (sFile.is_open())
+	{
+		sFile << highScore;
+	}
 }
 
 void Score::draw()

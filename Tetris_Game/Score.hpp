@@ -1,5 +1,6 @@
 #pragma once
 #include <raylib.h>
+#include <fstream>
 #include "GUI_Const.hpp"
 using namespace std;
 
@@ -20,5 +21,6 @@ public:
 	void setLineClear(int num);
 	void setPieceDrop(int num);
 	void setScore(long num, int speedLevel);
+	void saveHighScore();
 	void draw();
 };
