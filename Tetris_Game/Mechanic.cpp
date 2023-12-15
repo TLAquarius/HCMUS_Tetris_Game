@@ -19,7 +19,7 @@ Mechanic::Mechanic()
 	gameOver = false;
 	fallTime = 0;
 	level = 1;
-	BGM = LoadMusicStream("C:\\Users\\HienLong\\Downloads\\GEJ.mp3");
+	BGM = LoadMusicStream("BGM.mp3");
 	//ClearSound = LoadMusicStream("C:\\Users\\HienLong\\Downloads\\ClearSound.wav");
 }
 
