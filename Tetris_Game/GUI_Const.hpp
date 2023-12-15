@@ -10,3 +10,4 @@ const int nextOffsetX = 0;
 const int nextOffsetY = 0;
 const int holdOffsetX = 0;
 const int holdOffsetY = 0;
+//chinh sua next/hold offset

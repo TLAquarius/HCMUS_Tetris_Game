@@ -40,6 +40,8 @@ void Menu::About() {
 	EndDrawing();
 }
 
+
+//Chinh lai cac huong dan
 void Menu::HowToPlay() {
 	BeginDrawing();
 	ClearBackground(DARKGRAY);

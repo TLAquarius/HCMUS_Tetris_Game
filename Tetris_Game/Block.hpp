@@ -27,6 +27,8 @@ public:
 	int getSY();
 	void setSY(int y);
 	void draw();
+	void drawHoldBlock();
+	void drawNextBlock();
 	void drawShadow();
 	void move(int row, int col);
 	void rotate();

@@ -15,6 +15,7 @@ class Mechanic
 private:
 	Field f;
 	Score s;
+	//them class am thanh
 	Menu menu;
 	bool gameOver;
 	bool holdFlag;

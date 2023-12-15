@@ -1,5 +1,11 @@
 #include "Mechanic.h"
 
+
+//neu muon co am thanh thi tao mot class am thanh
+//khoi tao cac tieng ost,di chuyen, clear line
+//trong mechanic.h thi luc nay thi include cai header cua class am thanh
+//
+
 Mechanic::Mechanic()
 {
 	blockL = { LBlock(), JBlock(), ZBlock(), SBlock(),OBlock(), TBlock(), IBlock() };
@@ -93,9 +99,12 @@ void Mechanic::draw()
 {
 	ClearBackground(GRAY);
 	f.draw();
+	//goi ham ve next voi hold block
 	updateShadow();
 	curBlock.drawShadow();
 	curBlock.draw();
+	nextBlocks.front().drawNextBlock();//cai nay ve mot cai next
+	holdBlock.drawHoldBlock();
 	s.draw();
 }
 

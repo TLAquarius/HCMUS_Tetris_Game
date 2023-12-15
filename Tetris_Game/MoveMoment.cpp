@@ -3,6 +3,7 @@
 void Mechanic::rotate()
 {
 	curBlock.rotate();
+	//them am thanh di chuyen tuong ung vo may method cua movement
 	int count = 0;
 	while (curBlock.isOutOfBound() == 1)
 	{

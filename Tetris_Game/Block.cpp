@@ -56,6 +56,18 @@ void Block::draw()
 	}
 }
 
+void Block::drawHoldBlock()
+{
+	//Lay toa do cua block + mot hang so offset de vi tri block luc duoc ve
+	//nam ben goc trai tren (viet giong ham draw o tren nhung
+	//thay gameoffsetx/y thanh offset moi)
+}
+
+void Block::drawNextBlock()
+{
+	//tuong tu
+}
+
 void Block::drawShadow()
 {
 	for (int i = 0; i < cells[state].size(); i++)
