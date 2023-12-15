@@ -49,11 +49,4 @@ void Mechanic::control()
 				hold();
 		}
 	}
-	else
-	{
-		if (IsKeyPressed(KEY_R))
-		{
-			restart();
-		}
-	}
 }

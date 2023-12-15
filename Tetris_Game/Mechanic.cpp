@@ -15,14 +15,32 @@ Mechanic::Mechanic()
 	level = 1;
 }
 
-void Mechanic::logic()
+bool Mechanic::logic()
 {
-	if (eventTrigger(fallSpeed(), fallTime))
+	if (!gameOver)
 	{
-		moveDown();
+		if (eventTrigger(fallSpeed(), fallTime))
+		{
+			moveDown();
+		}
+		control();
+		draw();
 	}
-	control();
-	draw();
+	while (gameOver) {
+		long a = s.getScore();
+		menu.GameOverMenu(a);
+		if (IsKeyPressed(KEY_R))
+		{
+			restart();
+			return false;
+		}
+		else if (IsKeyPressed(KEY_M))
+		{
+			restart();
+			return true;
+		}
+	}
+	return false;
 }
 
 Block Mechanic::blockGenerator()

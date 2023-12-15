@@ -4,6 +4,7 @@
 #include "Colors.hpp"
 #include "GUI_Const.hpp"
 #include "Score.hpp"
+#include "Menu.h"
 #include <time.h>
 #include <vector>
 #include <queue>
@@ -14,6 +15,7 @@ class Mechanic
 private:
 	Field f;
 	Score s;
+	Menu menu;
 	bool gameOver;
 	bool holdFlag;
 	double level;
@@ -34,7 +36,7 @@ public:
 	void draw();
 	void updateShadow();
 
-	void logic();
+	bool logic();
 
 	void rotate();
 	void moveDown();

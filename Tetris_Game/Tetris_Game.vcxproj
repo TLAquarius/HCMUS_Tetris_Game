@@ -138,6 +138,7 @@
     <ClCompile Include="GUI_Const.hpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mechanic.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MoveMoment.cpp" />
     <ClCompile Include="PlayField.cpp" />
     <ClCompile Include="Position.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="Block.hpp" />
     <ClInclude Include="Colors.hpp" />
     <ClInclude Include="Mechanic.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="PlayField.hpp" />
     <ClInclude Include="Position.hpp" />
     <ClInclude Include="Score.hpp" />
