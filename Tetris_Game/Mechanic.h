@@ -16,6 +16,7 @@ private:
 	Field f;
 	Score s;
 	//them class am thanh
+	Music BGM;
 	Menu menu;
 	bool gameOver;
 	bool holdFlag;
@@ -27,6 +28,7 @@ private:
 	Block holdBlock;
 	vector<Block> blockL;
 public:
+	
 	Mechanic();
 	Block blockGenerator();
 	void control();
@@ -49,4 +51,6 @@ public:
 	void lock();
 	void hold();
 	void restart();
+
+	Music GetBGM() { return BGM; }
 };

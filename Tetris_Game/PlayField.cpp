@@ -1,7 +1,9 @@
 #include "PlayField.hpp"
+#include "Mechanic.h"
 
 Field::Field()
 {
+	
 	colNum = 10;
 	rowNum = 20;
 	fieldInit();
@@ -55,6 +57,7 @@ void Field::draw()
 
 bool Field::isLineComplete(int row)
 {
+	 
 	for (int i = 0; i < colNum; i++)
 	{
 		if (field[row][i] == 0)
@@ -64,6 +67,7 @@ bool Field::isLineComplete(int row)
 	{
 		field[row][i] = 0;
 	}
+	
 	return true;
 }
 
@@ -81,6 +85,7 @@ int Field::clearLine()
 			moveLine(i, num);
 		}
 	}
+	
 	return num;
 }
 void Field::moveLine(int curRow, int num)

@@ -49,7 +49,7 @@ void Menu::HowToPlay() {
 	DrawText(TextFormat("Rule: you can only move the pieces in specific ways"), 200, 100, 20, BLACK);
 	DrawText(TextFormat("your game is over if your pieces reach the top of the screen."), 200, 120, 20, BLACK);
 	DrawText(TextFormat("you can only remove pieces from the screen by filling all the blank space in a line."), 200, 140, 20, BLACK);
-	DrawText(TextFormat("CONTROL: USE -ARROWS KEY TO MOVE THE PIECES.\n-UP key or Z and X key for rotation.\n-C to hold piece\n-SPACE to drop piece"), 200, 180, 20, BLACK);
+	DrawText(TextFormat("CONTROL: USE -ARROWS KEY TO MOVE THE PIECES.\n\n-UP key or Z and X key for rotation.\n\n-C to hold piece\n\n-SPACE to drop piece"), 200, 180, 20, BLACK);
 
 	DrawText(TextFormat("LEFT CLICK to return to main menu"), 200, 600, 20, GREEN);
 	EndDrawing();

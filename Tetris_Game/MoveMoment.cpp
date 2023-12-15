@@ -3,7 +3,7 @@
 void Mechanic::rotate()
 {
 	curBlock.rotate();
-	//them am thanh di chuyen tuong ung vo may method cua movement
+	
 	int count = 0;
 	while (curBlock.isOutOfBound() == 1)
 	{
@@ -51,6 +51,7 @@ void Mechanic::rotate()
 void Mechanic::counterRotate()
 {
 	curBlock.counterRotate();
+	
 	int count = 0;
 	while (curBlock.isOutOfBound() == 1)
 	{
@@ -110,18 +111,21 @@ void Mechanic::moveDown()
 void Mechanic::moveLeft()
 {
 	curBlock.move(0, -1);
+	
 	if (curBlock.isOutOfBound() == 1 ||isCollision())
 		curBlock.move(0, 1);
 }
 void Mechanic::moveRight()
 {
 	curBlock.move(0, 1);
+	
 	if (curBlock.isOutOfBound() == 2 || isCollision())
 		curBlock.move(0, -1);
 }
 
 void Mechanic::moveUp()
 {
+	
 	curBlock.move(-1, 0);
 }
 
@@ -161,6 +165,7 @@ void Mechanic::lock()
 		f.field[temp[i].getY() + curBlock.getY()][temp[i].getX() + curBlock.getX()] = curBlock.getType();
 	}
 	int templ = f.clearLine();
+	
 	s.setLineClear(templ);
 	s.setScore(templ, level);
 	if (s.getScore() > s.getHighScore())

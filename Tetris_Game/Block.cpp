@@ -58,14 +58,29 @@ void Block::draw()
 
 void Block::drawHoldBlock()
 {
-	//Lay toa do cua block + mot hang so offset de vi tri block luc duoc ve
-	//nam ben goc trai tren (viet giong ham draw o tren nhung
-	//thay gameoffsetx/y thanh offset moi)
+	DrawRectangle(holdOffsetX, holdOffsetY, 200, 160, BLACK);
+	DrawText(TextFormat("HOLD BLOCK"), holdOffsetX + 35, holdOffsetY + 10, 20, GRAY);
+	if (color != 0)
+	{
+		for (int i = 0; i < cells[state].size(); i++)
+		{
+			DrawRectangle(((cells[state][i].getX() + x) * cellSize + holdOffsetX - 80),
+				((cells[state][i].getY() + y) * cellSize + holdOffsetY + 50),
+				cellSize - 2, cellSize - 2, colorList[color]);
+		}
+	}
 }
 
 void Block::drawNextBlock()
 {
-	//tuong tu
+	DrawRectangle(nextOffsetX, nextOffsetY, 240, 160, BLACK);
+	DrawText(TextFormat("NEXT BLOCK"), nextOffsetX + 55, nextOffsetY + 10, 20, GRAY);
+	for (int i = 0; i < cells[state].size(); i++)
+	{
+		DrawRectangle(((cells[state][i].getX() + x) * cellSize + nextOffsetX - 60),
+			((cells[state][i].getY() + y) * cellSize + nextOffsetY + 50),
+			cellSize - 2, cellSize - 2, colorList[color]);
+	}
 }
 
 void Block::drawShadow()

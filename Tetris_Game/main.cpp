@@ -9,18 +9,25 @@ using namespace std;
 int main()
 {
 	InitWindow(1124, 820, "Tetris_Group08");
+	InitAudioDevice();
 	SetTargetFPS(60);
 	Mechanic gamePlay;
-
+	PlayMusicStream(gamePlay.GetBGM());
+	
 	Menu menu;
+	
 	while (WindowShouldClose() == false)
 	{
+		
 		menu.DrawMenu();
 		if (menu.isClickStartBox()) {
+			
 			while (!IsKeyPressed(KEY_Q) && !WindowShouldClose()) {
+				UpdateMusicStream(gamePlay.GetBGM());
 				BeginDrawing();
 				if (gamePlay.logic())
 				{
+					
 					EndDrawing();
 					break;
 				}
@@ -42,7 +49,11 @@ int main()
 					break;
 			}
 		}
+		StopMusicStream(gamePlay.GetBGM());
+		PlayMusicStream(gamePlay.GetBGM());
 	}
+	UnloadMusicStream(gamePlay.GetBGM());
+	CloseAudioDevice();
 	CloseWindow();
 	return 0;
 }

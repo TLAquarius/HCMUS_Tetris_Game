@@ -19,12 +19,15 @@ Mechanic::Mechanic()
 	gameOver = false;
 	fallTime = 0;
 	level = 1;
+	BGM = LoadMusicStream("C:\\Users\\HienLong\\Downloads\\GEJ.mp3");
+	//ClearSound = LoadMusicStream("C:\\Users\\HienLong\\Downloads\\ClearSound.wav");
 }
 
 bool Mechanic::logic()
 {
 	if (!gameOver)
 	{
+		
 		if (eventTrigger(fallSpeed(), fallTime))
 		{
 			moveDown();
@@ -45,6 +48,11 @@ bool Mechanic::logic()
 			restart();
 			return true;
 		}
+		else if (WindowShouldClose())
+		{
+			EndDrawing();
+			CloseWindow();
+		}	
 	}
 	return false;
 }
@@ -128,6 +136,8 @@ bool Mechanic::isCollision()
 
 void Mechanic::restart()
 {
+	StopMusicStream(BGM);
+	PlayMusicStream(BGM);
 	f.clear();
 	f.fieldInit();
 	blockL.clear();

@@ -1,5 +1,6 @@
 #include "Mechanic.h"
 
+
 void Mechanic::control()
 {
 	if (!gameOver)
