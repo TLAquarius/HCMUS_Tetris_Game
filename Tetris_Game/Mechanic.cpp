@@ -1,11 +1,5 @@
 #include "Mechanic.h"
 
-
-//neu muon co am thanh thi tao mot class am thanh
-//khoi tao cac tieng ost,di chuyen, clear line
-//trong mechanic.h thi luc nay thi include cai header cua class am thanh
-//
-
 Mechanic::Mechanic()
 {
 	blockL = { LBlock(), JBlock(), ZBlock(), SBlock(),OBlock(), TBlock(), IBlock() };
@@ -19,8 +13,16 @@ Mechanic::Mechanic()
 	gameOver = false;
 	fallTime = 0;
 	level = 1;
-	BGM = LoadMusicStream("BGM.mp3");
-	//ClearSound = LoadMusicStream("C:\\Users\\HienLong\\Downloads\\ClearSound.wav");
+	BGM = LoadMusicStream("sounds\\BGM.mp3");
+	clearSound = LoadSound("sounds\\ClearSound.wav");
+	moveSound = LoadSound("sounds\\MoveSound.mp3");
+}
+
+Mechanic::~Mechanic()
+{
+	UnloadSound(clearSound);
+	UnloadSound(moveSound);
+	CloseAudioDevice();
 }
 
 bool Mechanic::logic()

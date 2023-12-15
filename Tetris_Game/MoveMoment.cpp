@@ -3,7 +3,7 @@
 void Mechanic::rotate()
 {
 	curBlock.rotate();
-	
+	bool flag = false;
 	int count = 0;
 	while (curBlock.isOutOfBound() == 1)
 	{
@@ -17,6 +17,7 @@ void Mechanic::rotate()
 				count--;
 			}
 			curBlock.counterRotate();
+			flag = true;
 			break;
 		}
 	}
@@ -32,6 +33,7 @@ void Mechanic::rotate()
 				count--;
 			}
 			curBlock.counterRotate();
+			flag = true;
 			break;
 		}
 	}
@@ -46,12 +48,17 @@ void Mechanic::rotate()
 	if (isCollision())
 	{
 		curBlock.counterRotate();
+		flag = true;
+	}
+	if (flag == false)
+	{
+		PlaySound(moveSound);
 	}
 }
 void Mechanic::counterRotate()
 {
 	curBlock.counterRotate();
-	
+	bool flag = false;
 	int count = 0;
 	while (curBlock.isOutOfBound() == 1)
 	{
@@ -65,6 +72,7 @@ void Mechanic::counterRotate()
 				count--;
 			}
 			curBlock.rotate();
+			flag = true;
 			break;
 		}
 	}
@@ -80,6 +88,7 @@ void Mechanic::counterRotate()
 				count--;
 			}
 			curBlock.rotate();
+			flag = true;
 			break;
 		}
 	}
@@ -94,6 +103,11 @@ void Mechanic::counterRotate()
 	if (isCollision())
 	{
 		curBlock.rotate();
+		flag = true;
+	}
+	if (flag == false)
+	{
+		PlaySound(moveSound);
 	}
 }
 void Mechanic::moveDown()
@@ -106,6 +120,10 @@ void Mechanic::moveDown()
 			moveUp();
 			lock();
 		}
+		else
+		{
+			PlaySound(moveSound);
+		}
 	}
 }
 void Mechanic::moveLeft()
@@ -114,6 +132,10 @@ void Mechanic::moveLeft()
 	
 	if (curBlock.isOutOfBound() == 1 ||isCollision())
 		curBlock.move(0, 1);
+	else
+	{
+		PlaySound(moveSound);
+	}
 }
 void Mechanic::moveRight()
 {
@@ -121,6 +143,10 @@ void Mechanic::moveRight()
 	
 	if (curBlock.isOutOfBound() == 2 || isCollision())
 		curBlock.move(0, -1);
+	else
+	{
+		PlaySound(moveSound);
+	}
 }
 
 void Mechanic::moveUp()
@@ -132,8 +158,8 @@ void Mechanic::moveUp()
 void Mechanic::drop()
 {
 	curBlock.setY(curBlock.getSY());
+	PlaySound(moveSound);
 	lock();
-	
 }
 
 void Mechanic::hold()
@@ -165,7 +191,10 @@ void Mechanic::lock()
 		f.field[temp[i].getY() + curBlock.getY()][temp[i].getX() + curBlock.getX()] = curBlock.getType();
 	}
 	int templ = f.clearLine();
-	
+	if (templ > 0)
+	{
+		PlaySound(clearSound);
+	}
 	s.setLineClear(templ);
 	s.setScore(templ, level);
 	if (s.getScore() > s.getHighScore())

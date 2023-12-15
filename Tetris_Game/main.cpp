@@ -18,7 +18,6 @@ int main()
 	
 	while (WindowShouldClose() == false)
 	{
-		
 		menu.DrawMenu();
 		if (menu.isClickStartBox()) {
 			
@@ -27,7 +26,6 @@ int main()
 				BeginDrawing();
 				if (gamePlay.logic())
 				{
-					
 					EndDrawing();
 					break;
 				}
@@ -49,11 +47,8 @@ int main()
 					break;
 			}
 		}
-		StopMusicStream(gamePlay.GetBGM());
-		PlayMusicStream(gamePlay.GetBGM());
 	}
 	UnloadMusicStream(gamePlay.GetBGM());
-	CloseAudioDevice();
 	CloseWindow();
 	return 0;
 }

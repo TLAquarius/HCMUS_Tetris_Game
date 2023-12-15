@@ -17,6 +17,8 @@ private:
 	Score s;
 	//them class am thanh
 	Music BGM;
+	Sound moveSound;
+	Sound clearSound;
 	Menu menu;
 	bool gameOver;
 	bool holdFlag;
@@ -30,6 +32,7 @@ private:
 public:
 	
 	Mechanic();
+	~Mechanic();
 	Block blockGenerator();
 	void control();
 	double fallSpeed();
