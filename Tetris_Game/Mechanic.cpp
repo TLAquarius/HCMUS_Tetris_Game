@@ -50,11 +50,6 @@ bool Mechanic::logic()
 			restart();
 			return true;
 		}
-		else if (WindowShouldClose())
-		{
-			EndDrawing();
-			CloseWindow();
-		}	
 	}
 	return false;
 }
