@@ -19,10 +19,9 @@ int main()
 	while (WindowShouldClose() == false)
 	{
 		menu.DrawMenu();
-		if (menu.isClickStartBox())
-		{
-			while (!IsKeyPressed(KEY_Q) && !WindowShouldClose())
-			{
+		if (menu.isClickStartBox()) {
+			
+			while (!IsKeyPressed(KEY_Q) && !WindowShouldClose()) {
 				UpdateMusicStream(gamePlay.GetBGM());
 				BeginDrawing();
 				if (gamePlay.logic())
@@ -33,8 +32,7 @@ int main()
 				EndDrawing();
 			}
 		}
-		else if (menu.isClickAboutBox()) 
-		{
+		else if (menu.isClickAboutBox()) {
 			while (WindowShouldClose() == false)
 			{
 				menu.About();
@@ -43,8 +41,7 @@ int main()
 			}
 		}
 		else if (menu.isClickHowToPlay()) {
-			while (WindowShouldClose()==false)
-			{
+			while (WindowShouldClose()==false) {
 				menu.HowToPlay();
 				if (IsGestureDetected(GESTURE_TAP))
 					break;
