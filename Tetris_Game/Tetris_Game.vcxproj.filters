@@ -33,7 +33,7 @@
     <ClCompile Include="Control.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MoveMoment.cpp">
+    <ClCompile Include="Movement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GUI_Const.hpp">
