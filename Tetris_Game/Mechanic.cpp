@@ -29,7 +29,6 @@ bool Mechanic::logic()
 {
 	if (!gameOver)
 	{
-		
 		if (eventTrigger(fallSpeed(), fallTime))
 		{
 			moveDown();
@@ -55,6 +54,11 @@ bool Mechanic::logic()
 			EndDrawing();
 			CloseWindow();
 		}	
+	}
+	if (IsKeyPressed(KEY_Q))
+	{
+		restart();
+		return true;
 	}
 	return false;
 }

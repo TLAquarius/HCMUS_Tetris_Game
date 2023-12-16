@@ -20,8 +20,7 @@ int main()
 	{
 		menu.DrawMenu();
 		if (menu.isClickStartBox()) {
-			
-			while (!IsKeyPressed(KEY_Q) && !WindowShouldClose()) {
+			while (!WindowShouldClose()) {
 				UpdateMusicStream(gamePlay.GetBGM());
 				BeginDrawing();
 				if (gamePlay.logic())
